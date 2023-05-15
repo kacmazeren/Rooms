@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "MeetingRoomManagementService";
+option java_outer_classname = "MeetingRoomManagementServiceImpl";
+
+package meetingroommanagement;
+
+service MeetingRoomManagementService {
+  rpc AddMeetingRoom (AddMeetingRoomRequest) returns (AddMeetingRoomResponse) {}
+  rpc UpdateMeetingRoom (UpdateMeetingRoomRequest) returns (UpdateMeetingRoomResponse) {}
+}
+
+message UpdatedRoom {
+  string id = 1;
+  string name = 2;
+  int32 capacity = 3;
+  string equipment = 4;
+  bool available = 5;
+  }
+
+message AddMeetingRoomRequest {
+  string id = 1;
+  string name = 2;
+  int32 capacity = 3;
+  string equipment = 4;
+}
+
+message AddMeetingRoomResponse {
+  bool success = 1;
+  string message = 2;
+  repeated UpdatedRoom updated_rooms = 3;
+}
+
+message UpdateMeetingRoomRequest {
+  string id = 1;
+  string name = 2;
+  int32 capacity = 3;
+  string equipment = 4;
+  }
+
+message UpdateMeetingRoomResponse {
+
+  repeated UpdatedRoom updated_rooms = 1;
+}

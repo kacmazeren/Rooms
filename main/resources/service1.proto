@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "MeetingRoomAvailabilityService";
+option java_outer_classname = "MeetingRoomAvailabilityServiceImpl";
+
+package meetingroomavailability;
+
+service MeetingRoomAvailabilityService {
+
+  rpc BookMeetingRoom (BookingRequest) returns (BookingResponse) {}
+}
+message MeetingRoom {
+    string id = 1;
+    string name = 2;
+    int32 capacity = 3;
+    string equipment = 4;
+    bool available = 5;
+}
+
+
+message BookingRequest {
+	string id = 1;
+    string date = 2;
+    string start_time = 3;
+    int32 duration = 4;
+   }
+
+message BookingResponse {
+    bool is_booked = 1;
+    string message =2;
+    string res_num = 3;
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "MeetingRoomNotificationService";
+option java_outer_classname = "MeetingRoomNotificationServiceImpl";
+package meetingroomnotification;
+
+service MeetingRoomNotificationService {
+	rpc deviceSupply (DeviceSupplyRequest) returns (DeviceSupplyResponse) {
+	}
+
+}
+
+message DeviceSupplyRequest {
+	string name = 1;
+	int32 paper = 2;
+	int32 cartridge = 3;
+	}
+
+message DeviceSupplyResponse {
+	bool success = 1;
+	string message = 2;
+}
